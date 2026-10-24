@@ -1,0 +1,15 @@
+/* reset margin, padding */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.banner {
+  border: 1px solid red;
+  height: 865px;
+  background-image: url("./banner.jpg");
+  background-color: #cccccc;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
