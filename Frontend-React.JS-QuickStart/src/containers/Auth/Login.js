@@ -12,6 +12,7 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "fanchelsea268",
+      isShowPassword: false,
     };
   }
 
@@ -34,6 +35,11 @@ class Login extends Component {
     );
     console.log("all state", this.state);
   };
+  handleShowHidePassword = () => {
+    this.setState({
+      isShowPassword: !this.state.isShowPassword,
+    });
+  };
   render() {
     return (
       <div className="login-background">
@@ -54,15 +60,25 @@ class Login extends Component {
               <label>Password:</label>
               <div className="custom-input-password">
                 <input
-                  type="text"
+                  type={this.state.isShowPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   className="form-control"
                   onChange={(event) => {
                     this.handleOnChangePassword(event);
                   }}
                 />
-                <span>
-                  <i class="far fa-eye"></i>
+                <span
+                  onclick={() => {
+                    this.handleShowHidePassword();
+                  }}
+                >
+                  <i
+                    class={
+                      this.state.isShowPassword
+                        ? "far fa-eye-slash"
+                        : "far fa-eye"
+                    }
+                  ></i>
                 </span>
               </div>
             </div>
